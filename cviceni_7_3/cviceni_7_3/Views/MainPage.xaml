@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:cviceni_7_3"
+             x:Class="cviceni_7_3.MainPage"
+             x:DataType="local:HangmanGame"
+             Padding="5">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:HangmanMissesToImageVisibilityConverter x:Key="visibilityConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Tip:" Style="{StaticResource greenLabel}"/>
+                <Entry x:Name="TipEntry" MaxLength="1" Style="{StaticResource greenEntry}" SelectionLength="10" TextTransform="Uppercase" Focused="OnTipEntryFocused"/>
+                <Button Text="Tipnout" Clicked="OnTipButtonClicked" Style="{StaticResource greenButton}"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                <Grid HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="i_0" Source="{local:ImageResource cviceni_7_3.Views.images.1.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='1'}"/>
+                    <Image x:Name="i_1" Source="{local:ImageResource cviceni_7_3.Views.images.2.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='2'}"/>
+                    <Image x:Name="i_2" Source="{local:ImageResource cviceni_7_3.Views.images.3.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='3'}"/>
+                    <Image x:Name="i_3" Source="{local:ImageResource cviceni_7_3.Views.images.4.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='4'}"/>
+                    <Image x:Name="i_4" Source="{local:ImageResource cviceni_7_3.Views.images.5.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='5'}"/>
+                    <Image x:Name="i_5" Source="{local:ImageResource cviceni_7_3.Views.images.6.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='6'}"/>
+                    <Image x:Name="i_6" Source="{local:ImageResource cviceni_7_3.Views.images.7.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='7'}"/>
+                    <Image x:Name="i_7" Source="{local:ImageResource cviceni_7_3.Views.images.8.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='8'}"/>
+                    <Image x:Name="i_8" Source="{local:ImageResource cviceni_7_3.Views.images.9.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='9'}"/>
+                    <Image x:Name="i_9" Source="{local:ImageResource cviceni_7_3.Views.images.10.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='10'}"/>
+                    <Image x:Name="i_10" Source="{local:ImageResource cviceni_7_3.Views.images.11.png}"
+                           IsVisible="{Binding Misses, Converter={StaticResource visibilityConverter}, ConverterParameter='11'}"/>
+                </Grid>
+                <Label Text="{Binding MaskedWord}" Style="{StaticResource greenLabel}" TextTransform="Uppercase" CharacterSpacing="3"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                <Button Text="Restart" Clicked="OnRestartButtonClicked" Style="{StaticResource greenButton}"/>
+                <Button Text="Žebříček" Clicked="OnChartButtonClicked" Style="{StaticResource greenButton}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

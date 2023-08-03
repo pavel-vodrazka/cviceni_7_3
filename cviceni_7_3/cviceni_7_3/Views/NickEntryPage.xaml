@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:cviceni_7_3"
+             x:Class="cviceni_7_3.NickEntryPage"
+             x:DataType="local:HangmanGame">
+    <ContentPage.Content>
+        <StackLayout>
+                <Label Text="Vyhrál jsi!" Style="{StaticResource greenLabel}" FontSize="Header" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Hádané slovo bylo:" Style="{StaticResource greenLabel}"/>
+                <Label Text="{Binding WordDrawn, StringFormat='{0}.'}" Style="{StaticResource greenLabel}" CharacterSpacing="3" TextTransform="Uppercase"/>
+                    <Label Text="{Binding Misses, StringFormat='Měl jsi {0} chybných tipů.'}" Style="{StaticResource greenLabel}"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Zadej svou přezdívku:" Style="{StaticResource greenLabel}"/>
+                <Entry x:Name="NickEntry" Style="{StaticResource greenEntry}" WidthRequest="250"/>
+                <Button Text="Ok" Clicked="OKButtonClicked" Style="{StaticResource greenButton}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

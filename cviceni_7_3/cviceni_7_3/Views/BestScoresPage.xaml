@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:cviceni_7_3"
+             x:Class="cviceni_7_3.BestScoresPage"
+             x:Name="bestScoresPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolTextChooserConverter x:Key="buttonTextConverter"/>
+            <x:Array Type="{x:Type x:String}" x:Key="strings">
+                <x:String>Zpět</x:String>
+                <x:String>Další hra</x:String>
+            </x:Array>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Nejlepší hráči:" Style="{StaticResource greenLabel}"/>
+            <ScrollView>
+                <ListView ItemsSource="{Binding}" SeparatorVisibility="None">
+                    <ListView.Header>
+                        <Grid Padding="10,50,10,20">
+                            <Label Text="Hráč" HorizontalOptions="StartAndExpand" FontSize="Large" FontAttributes="Bold" Grid.Column="0"/>
+                            <Label Text="Chybných tipů" HorizontalOptions="End" FontSize="Large" FontAttributes="Bold" Grid.Column="1"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10,0">
+                                    <Label Text="{Binding Player}" HorizontalOptions="StartAndExpand" FontSize="Large" Grid.Column="0"/>
+                                    <Label Text="{Binding Misses}" HorizontalOptions="End" FontSize="Large" Grid.Column="1"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <Button Text="{Binding Source={x:Reference bestScoresPage}, Path=JustPeeked, Converter={StaticResource buttonTextConverter}, ConverterParameter={StaticResource strings}}" Clicked="OKButtonClicked" Style="{StaticResource greenButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
